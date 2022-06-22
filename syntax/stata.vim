@@ -122,6 +122,7 @@ syn keyword stataCommand churdle
 syn keyword stataCommand class
 syn keyword stataCommand classutil
 syn keyword stataCommand clear
+syn keyword stataCommand clogit
 syn keyword stataCommand cloglog
 syn keyword stataCommand codebook
 syn keyword stataCommand collapse
@@ -262,6 +263,7 @@ syn keyword stataCommand numlabel
 syn keyword stataCommand numlist
 syn keyword stataCommand odbc
 syn keyword stataCommand order
+syn keyword stataCommand ologit
 syn keyword stataCommand outfile
 syn keyword stataCommand outsheet
 syn keyword stataCommand _parse
