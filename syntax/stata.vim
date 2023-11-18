@@ -2,8 +2,8 @@
 " Language: Stata and/or Mata
 " Maintainer: Chris Poliquin <chrispoliquin@gmail.com>
 " Note: Based on the original by Jeff Pitblado <jpitblado@stata.com>
-" Last Change: 2022-04-25
-" Version: 0.6.33
+" Last Change: 2023-09-14
+" Version: 0.6.37
 
 
 " Preamble {{{
@@ -81,7 +81,7 @@ syn region stataLocal start=/`/ end=/'/ oneline contains=@stataMacroGroup
 
 " Statements {{{
 " -----------------------------------------------------------------------------
-syn keyword stataConditional else if
+syn keyword stataConditional else if in
 syn keyword stataRepeat      foreach
 syn keyword stataRepeat      forv[alues]
 syn keyword stataRepeat      while
@@ -141,6 +141,7 @@ syn keyword stataCommand cprplot
 syn keyword stataCommand cross
 syn keyword stataCommand cscript
 syn keyword stataCommand cscript_log
+syn keyword stataCommand cwf
 syn keyword stataCommand #delimit
 syn keyword stataCommand decode
 syn keyword stataCommand d[escribe]
@@ -163,8 +164,9 @@ syn keyword stataCommand erase
 syn keyword stataCommand eret[urn]
 syn keyword stataCommand err[or]
 syn keyword stataCommand estadd
+syn keyword stataCommand etable
 syn match stataCommand '\<estat \(ic\|summarize\|vce\|gof\)\>'
-syn match stataCommand '\<est\(imates\)\? \(save\|use\|esample\|sto\(re\)\?\|res\(tore\)\?\|q\(uery\)\?\|des\(cribe\)\?\|drop\|dir\|clear\)\>'
+syn match stataCommand '\<est\(imates\)\? \(save\|use\|esample\|tab\(le\)\?\|sto\(re\)\?\|res\(tore\)\?\|q\(uery\)\?\|des\(cribe\)\?\|drop\|dir\|clear\)\>'
 syn keyword stataCommand excel
 syn keyword stataCommand exlogistic
 syn keyword stataCommand e[xit]
@@ -176,6 +178,9 @@ syn keyword stataCommand fillin
 syn keyword stataCommand findfile
 syn keyword stataCommand forecast
 syn keyword stataCommand format
+syn match stataCommand '\<frame\(s\)\?\( dir\| create\| change\| copy\| put\| post\| drop\| rename\| reset\)\?\>'
+syn keyword stataCommand frlink
+syn keyword stataCommand frget
 syn keyword stataCommand fvrevar
 syn match stataCommand '\<fvset \(report\|b\(ase\)\?\|d\(esign\)\?\|clear\)\>'
 syn keyword stataCommand g[enerate]
@@ -190,7 +195,7 @@ syn keyword stataCommand gsort
 syn keyword stataCommand hausman
 syn keyword stataCommand help
 syn keyword stataCommand hexdump
-syn keyword stataCommand hist
+syn keyword stataCommand hist[ogram]
 syn keyword stataCommand hotelling
 syn keyword stataCommand icd9[p]
 syn keyword stataCommand icd10
@@ -201,6 +206,7 @@ syn keyword stataCommand infix
 syn keyword stataCommand input
 syn keyword stataCommand insheet
 syn keyword stataCommand inspect
+syn keyword stataCommand ipolate
 syn keyword stataCommand iqreg
 syn keyword stataCommand isid
 syn keyword stataCommand ivreg[ress]
@@ -290,6 +296,7 @@ syn keyword stataCommand profiler
 syn keyword stataCommand pr[ogram]
 syn keyword stataCommand proportion
 syn keyword stataCommand pwcorr
+syn keyword stataCommand pwf
 syn keyword stataCommand _qreg
 syn keyword stataCommand _qregwls
 syn keyword stataCommand qreg
@@ -881,6 +888,27 @@ syn region stataFunc matchgroup=Function start=/\<upper(/ end=/)/ contains=@stat
 syn region stataFunc matchgroup=Function start=/\<word(/ end=/)/ contains=@stataFuncGroup
 syn region stataFunc matchgroup=Function start=/\<wordbreaklocale(/ end=/)/ contains=@stataFuncGroup
 syn region stataFunc matchgroup=Function start=/\<wordcount(/ end=/)/ contains=@stataFuncGroup
+" }}}
+
+" Frames {{{
+" -----------------------------------------------------------------------------
+syn region stataFunc matchgroup=Function start=/\<frval(/ end=/)/ contains=@stataFuncGroup
+syn region stataFunc matchgroup=Function start=/\<_frval(/ end=/)/ contains=@stataFuncGroup
+syn region stataFunc matchgroup=Function start=/\<st_framecurrent(/ end=/)/ contains=@stataFuncGroup
+syn region stataFunc matchgroup=Function start=/\<st_framedir(/ end=/)/ contains=@stataFuncGroup
+syn region stataFunc matchgroup=Function start=/\<st_framecreate(/ end=/)/ contains=@stataFuncGroup
+syn region stataFunc matchgroup=Function start=/\<_st_framecreate(/ end=/)/ contains=@stataFuncGroup
+syn region stataFunc matchgroup=Function start=/\<st_framecurrent(/ end=/)/ contains=@stataFuncGroup
+syn region stataFunc matchgroup=Function start=/\<_st_framecurrent(/ end=/)/ contains=@stataFuncGroup
+syn region stataFunc matchgroup=Function start=/\<st_framerename(/ end=/)/ contains=@stataFuncGroup
+syn region stataFunc matchgroup=Function start=/\<_st_framerename(/ end=/)/ contains=@stataFuncGroup
+syn region stataFunc matchgroup=Function start=/\<st_framedrop(/ end=/)/ contains=@stataFuncGroup
+syn region stataFunc matchgroup=Function start=/\<_st_framedrop(/ end=/)/ contains=@stataFuncGroup
+syn region stataFunc matchgroup=Function start=/\<st_framedropabc(/ end=/)/ contains=@stataFuncGroup
+syn region stataFunc matchgroup=Function start=/\<st_framereset(/ end=/)/ contains=@stataFuncGroup
+syn region stataFunc matchgroup=Function start=/\<st_framecopy(/ end=/)/ contains=@stataFuncGroup
+syn region stataFunc matchgroup=Function start=/\<_st_framecopy(/ end=/)/ contains=@stataFuncGroup
+syn region stataFunc matchgroup=Function start=/\<st_frameexists(/ end=/)/ contains=@stataFuncGroup
 " }}}
 
 " programming {{{
